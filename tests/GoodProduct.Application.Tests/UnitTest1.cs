@@ -1,7 +1,7 @@
 using System;
 using Xunit;
 
-namespace GoodProduct.API.Tests
+namespace GoodProduct.Application.Tests
 {
     public class UnitTest1
     {
