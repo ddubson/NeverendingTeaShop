@@ -8,7 +8,6 @@ namespace GoodProduct.API.Tests
         [Fact]
         public void Test1()
         {
-
         }
     }
 }
