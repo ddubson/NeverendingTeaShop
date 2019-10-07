@@ -3,6 +3,9 @@ language: csharp
 mono: none
 solution: GoodProduct.sln
 dotnet: 3.0.100
+install:
+  - nuget restore GoodProduct.sln
+  - nuget install xunit.runners -Version 1.9.2 -OutputDirectory testrunner
 script:
-  - dotnet restore
-  - dotnet test
+  - msbuild /p:Configuration=Release GoodProduct.sln
+  - mono ./testrunner/xunit.runners.1.9.2/tools/xunit.console.clr4.exe ./tests/GoodProduct.API.Tests/bin/Release/GoodProduct.API.Tests.dll
