@@ -5,11 +5,12 @@ using GoodProduct.Domain;
 
 namespace GoodProduct.Application.ProductItems.Queries
 {
-    public class FetchAllProductItemsQuery: IFetchAllProductItemsQuery
+    public class FetchAllProductItemsQuery : IFetchAllProductItemsQuery
     {
-        public Task<IList<ProductItem>> Execute()
+        public Task<T> Execute<T>(IFetchAllProductItemsOutcomeHandler<Task<T>> outcomeHandler)
         {
-            throw new System.NotImplementedException();
+            return outcomeHandler.ReceivedAllProducts(new List<ProductItem>
+                {new ProductItem("Skillet 20oz")});
         }
     }
 }

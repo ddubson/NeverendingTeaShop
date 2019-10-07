@@ -1,0 +1,7 @@
+
+language: csharp
+solution: GoodProduct.sln
+dotnet: 3.0.100
+script:
+  - dotnet restore
+  - dotnet test

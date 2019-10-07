@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using GoodProduct.Application.Interfaces.Queries;
 using GoodProduct.Domain;
 using Microsoft.AspNetCore.Mvc;
 
@@ -9,10 +10,21 @@ namespace GoodProduct.API.ProductItems
     [Route("/product-items")]
     public class FetchAllProductItemsController : ControllerBase
     {
-        [HttpGet]
-        public async Task<JsonResult> FetchAllProductItems()
+        private readonly IFetchAllProductItemsQuery _fetchAllProductItemsQuery;
+
+        public FetchAllProductItemsController(IFetchAllProductItemsQuery fetchAllProductItemsQuery)
         {
-            return new JsonResult(new List<ProductItem> {new ProductItem("Skillet 20oz")});
+            _fetchAllProductItemsQuery = fetchAllProductItemsQuery;
+        }
+
+        [HttpGet]
+        public Task<JsonResult> FetchAllProductItems() =>
+            _fetchAllProductItemsQuery.Execute(new FetchAllProductItemsOutcomeHandler());
+
+        private class FetchAllProductItemsOutcomeHandler : IFetchAllProductItemsOutcomeHandler<Task<JsonResult>>
+        {
+            public Task<JsonResult> ReceivedAllProducts(IList<ProductItem> productItems) =>
+                Task.FromResult(new JsonResult(productItems));
         }
     }
 }
