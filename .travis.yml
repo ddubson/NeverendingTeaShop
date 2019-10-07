@@ -1,5 +1,6 @@
 
 language: csharp
+mono: none
 solution: GoodProduct.sln
 dotnet: 3.0.100
 script:
