@@ -11,4 +11,5 @@ mono: none
 solution: GoodProduct.sln
 script:
   - sudo snap alias dotnet-sdk.dotnet dotnet
-  - dotnet test
+  - dotnet test tests/GoodProduct.API.Tests
+  - dotnet test tests/GoodProduct.Application.Tests
