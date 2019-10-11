@@ -1,12 +1,14 @@
 
 language: csharp
+dist: xenial
+addons:
+  snaps:
+    - name: dotnet-sdk
+      classic: true
+      channel: latest/beta
+sudo: required
 mono: none
 solution: GoodProduct.sln
-dotnet: 3.0.100
-install:
-  - curl -L -o nuget.exe https://dist.nuget.org/win-x86-commandline/latest/nuget.exe
-  - mono nuget.exe restore GoodProduct.sln
-  - mono nuget.exe install xunit.runners -Version 1.9.2 -OutputDirectory testrunner
 script:
-  - msbuild /p:Configuration=Release GoodProduct.sln
-  - mono ./testrunner/xunit.runners.1.9.2/tools/xunit.console.clr4.exe ./tests/GoodProduct.API.Tests/bin/Release/GoodProduct.API.Tests.dll
+  - sudo snap alias dotnet-sdk.dotnet dotnet
+  - dotnet test
