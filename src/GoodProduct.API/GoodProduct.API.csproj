@@ -9,4 +9,8 @@
       <ProjectReference Include="..\GoodProduct.Domain\GoodProduct.Domain.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+      <PackageReference Include="LanguageExt.Core" Version="3.3.29" />
+    </ItemGroup>
+
 </Project>

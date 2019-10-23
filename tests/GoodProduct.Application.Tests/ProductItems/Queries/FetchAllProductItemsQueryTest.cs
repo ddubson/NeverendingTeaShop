@@ -16,7 +16,7 @@ namespace GoodProduct.Application.Tests.ProductItems.Queries
             IFetchAllProductItemsQuery query = new FetchAllProductItemsQuery();
             var fetchAllProductItemsOutcomeHandlerSpy = new FetchAllProductItemsOutcomeHandlerSpy();
             var productItems = await query.Execute(fetchAllProductItemsOutcomeHandlerSpy);
-            productItems.Should().BeEquivalentTo(new List<ProductItem> { new ProductItem("Skillet 20oz")});
+            productItems.Should().BeEquivalentTo(new List<ProductItem> { new ProductItem("1", "Skillet 20oz")});
         }
     }
 
