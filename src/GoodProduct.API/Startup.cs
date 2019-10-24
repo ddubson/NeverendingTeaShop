@@ -22,6 +22,7 @@ namespace GoodProduct.API
         {
             services.AddControllers();
             services.AddSingleton<IFetchAllProductItemsQuery, FetchAllProductItemsQuery>();
+            services.AddSingleton<IFetchProductItemByIdQuery, FetchProductItemByIdQuery>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

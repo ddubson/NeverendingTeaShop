@@ -26,7 +26,7 @@ namespace GoodProduct.API.ProductItems
         public Task<JsonResult> FetchAllProductItems() =>
             _fetchAllProductItemsQuery.Execute(new FetchAllProductItemsOutcomeHandler());
 
-        [HttpGet]
+        [HttpGet("/{id}")]
         public async Task<ActionResult<ProductItem>> FetchProductItemById(string id) =>
             await match(_fetchProductItemByIdQuery.Execute(id),
                 Right: productItem => Ok(productItem), 
