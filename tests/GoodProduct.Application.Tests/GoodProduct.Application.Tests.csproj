@@ -18,4 +18,8 @@
       <ProjectReference Include="..\..\src\GoodProduct.Application\GoodProduct.Application.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Folder Include="ProductItems\Queries" />
+    </ItemGroup>
+
 </Project>

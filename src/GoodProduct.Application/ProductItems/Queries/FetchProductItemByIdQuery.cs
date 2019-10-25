@@ -1,17 +1,21 @@
-using GoodProduct.Application.Interfaces.Errors;
+using System;
 using GoodProduct.Application.Interfaces.Queries;
-using GoodProduct.Application.ProductItems.Errors;
+using GoodProduct.Application.Interfaces.Repositories;
 using GoodProduct.Domain;
 using LanguageExt;
-using static LanguageExt.EitherAsync<GoodProduct.Application.Interfaces.Errors.IFetchProductItemByIdQueryError,GoodProduct.Domain.ProductItem>;
 
 namespace GoodProduct.Application.ProductItems.Queries
 {
-    public class FetchProductItemByIdQuery: IFetchProductItemByIdQuery
+    public class FetchProductItemByIdQuery : IFetchProductItemByIdQuery
     {
-        public EitherAsync<IFetchProductItemByIdQueryError, ProductItem> Execute(string id)
+        private readonly IProductItemRepository _productItemRepository;
+
+        public FetchProductItemByIdQuery(IProductItemRepository productItemRepository)
         {
-            return Left(new FetchProductItemByIdQueryError());
+            _productItemRepository = productItemRepository;
         }
+
+        public EitherAsync<Exception, Option<ProductItem>> Execute(string id) =>
+            _productItemRepository.FetchById(id);
     }
 }

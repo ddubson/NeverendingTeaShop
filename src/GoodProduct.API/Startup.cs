@@ -1,5 +1,7 @@
 using GoodProduct.Application.Interfaces.Queries;
+using GoodProduct.Application.Interfaces.Repositories;
 using GoodProduct.Application.ProductItems.Queries;
+using GoodProduct.Persistence;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -23,6 +25,7 @@ namespace GoodProduct.API
             services.AddControllers();
             services.AddSingleton<IFetchAllProductItemsQuery, FetchAllProductItemsQuery>();
             services.AddSingleton<IFetchProductItemByIdQuery, FetchProductItemByIdQuery>();
+            services.AddSingleton<IProductItemRepository, SqlProductItemRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

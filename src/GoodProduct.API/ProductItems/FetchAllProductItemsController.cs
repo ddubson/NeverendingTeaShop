@@ -1,7 +1,6 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using GoodProduct.Application.Interfaces.Queries;
-using GoodProduct.Domain;
 using Microsoft.AspNetCore.Mvc;
 using static LanguageExt.Prelude;
 
@@ -12,31 +11,19 @@ namespace GoodProduct.API.ProductItems
     public class FetchAllProductItemsController : ControllerBase
     {
         private readonly IFetchAllProductItemsQuery _fetchAllProductItemsQuery;
-        private readonly IFetchProductItemByIdQuery _fetchProductItemByIdQuery;
 
         public FetchAllProductItemsController(
-            IFetchAllProductItemsQuery fetchAllProductItemsQuery,
-            IFetchProductItemByIdQuery fetchProductItemByIdQuery)
+            IFetchAllProductItemsQuery fetchAllProductItemsQuery)
         {
             _fetchAllProductItemsQuery = fetchAllProductItemsQuery;
-            _fetchProductItemByIdQuery = fetchProductItemByIdQuery;
         }
 
         [HttpGet]
-        public Task<JsonResult> FetchAllProductItems() =>
-            _fetchAllProductItemsQuery.Execute(new FetchAllProductItemsOutcomeHandler());
-
-        [HttpGet("/{id}")]
-        public async Task<ActionResult<ProductItem>> FetchProductItemById(string id) =>
-            await match(_fetchProductItemByIdQuery.Execute(id),
-                Right: productItem => Ok(productItem), 
-                Left: error => StatusCode(400, "Failed to fetch a product item")
-            );
-
-        private class FetchAllProductItemsOutcomeHandler : IFetchAllProductItemsOutcomeHandler<Task<JsonResult>>
-        {
-            public Task<JsonResult> ReceivedAllProducts(IList<ProductItem> productItems) =>
-                Task.FromResult(new JsonResult(productItems));
-        }
+        public async Task<ActionResult> FetchAllProductItems() =>
+            await match(_fetchAllProductItemsQuery.Execute(),
+                Right: option => match(option,
+                    Some: Ok,
+                    None: () => StatusCode(404, "None found")),
+                Left: error => StatusCode(500, "Whoa! Error!"));
     }
 }

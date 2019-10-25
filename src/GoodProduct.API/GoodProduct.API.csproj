@@ -7,6 +7,7 @@
     <ItemGroup>
       <ProjectReference Include="..\GoodProduct.Application\GoodProduct.Application.csproj" />
       <ProjectReference Include="..\GoodProduct.Domain\GoodProduct.Domain.csproj" />
+      <ProjectReference Include="..\GoodProduct.Persistence\GoodProduct.Persistence.csproj" />
     </ItemGroup>
 
     <ItemGroup>
