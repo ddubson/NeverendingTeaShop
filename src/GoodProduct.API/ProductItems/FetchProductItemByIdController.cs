@@ -17,6 +17,11 @@ namespace GoodProduct.API.ProductItems
             _fetchProductItemByIdQuery = fetchProductItemByIdQuery;
         }
         
+        /// <summary>
+        ///  Fetch Product Item by ID
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [HttpGet("{id}")]
         public async Task<ActionResult<ProductItem>> FetchProductItemById(string id) =>
             await match(_fetchProductItemByIdQuery.Execute(id),
