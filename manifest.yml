@@ -1,0 +1,9 @@
+applications:
+  - name: GoodProductAPI
+    path: src/GoodProduct.API/bin/Release/netcoreapp3.0/publish
+    memory: 1G
+    disk_quota: 512M
+    env:
+      ASPNETCORE_ENVIRONMENT: Development
+    buildpacks:
+      - https://github.com/cloudfoundry/dotnet-core-buildpack.git
