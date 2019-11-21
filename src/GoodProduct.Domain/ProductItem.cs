@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace GoodProduct.Domain
+﻿namespace GoodProduct.Domain
 {
     public readonly struct ProductItem
     {
