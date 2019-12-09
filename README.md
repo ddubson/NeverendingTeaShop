@@ -1,5 +1,5 @@
-[![Build Status](https://travis-ci.org/ddubson/GoodProduct.svg?branch=master)](https://travis-ci.org/ddubson/GoodProduct)
+[![Build Status](https://travis-ci.org/ddubson/NeverendingTeaShop.svg?branch=master)](https://travis-ci.org/ddubson/NeverendingTeaShop)
  
- # GoodProduct
+ # NeverendingTeaShop
 
 .NET Core + C# Clean Architecture example

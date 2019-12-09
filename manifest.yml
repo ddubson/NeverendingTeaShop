@@ -1,6 +1,6 @@
 applications:
-  - name: GoodProductAPI
-    path: src/GoodProduct.API/bin/Release/netcoreapp3.0/publish
+  - name: NeverendingTeaShopAPI
+    path: src/NeverendingTeaShop.API/bin/Release/netcoreapp3.0/publish
     memory: 1G
     disk_quota: 512M
     env:

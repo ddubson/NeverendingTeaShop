@@ -1,4 +1,3 @@
-
 language: csharp
 dist: xenial
 addons:
@@ -8,8 +7,8 @@ addons:
       channel: latest/beta
 sudo: required
 mono: none
-solution: GoodProduct.sln
+solution: NeverendingTeaShop.sln
 script:
   - sudo snap alias dotnet-sdk.dotnet dotnet
-  - dotnet test tests/GoodProduct.API.Tests
-  - dotnet test tests/GoodProduct.Application.Tests
+  - dotnet test tests/NeverendingTeaShop.API.Tests
+  - dotnet test tests/NeverendingTeaShop.Application.Tests
