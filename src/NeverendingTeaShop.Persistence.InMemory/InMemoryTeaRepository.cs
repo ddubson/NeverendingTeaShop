@@ -7,9 +7,9 @@ using NeverendingTeaShop.Domain;
 using LanguageExt;
 using static LanguageExt.Prelude;
 
-namespace NeverendingTeaShop.Persistence
+namespace NeverendingTeaShop.Persistence.InMemory
 {
-    public class SqlTeaRepository : ITeaRepository
+    public class InMemoryTeaRepository : ITeaRepository
     {
         private readonly IList<Tea> _teas =
             ImmutableList.Create(

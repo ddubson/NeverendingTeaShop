@@ -1,13 +1,13 @@
 <Project Sdk="Microsoft.NET.Sdk.Web">
 
     <PropertyGroup>
-        <TargetFramework>netcoreapp3.0</TargetFramework>
+        <TargetFramework>netcoreapp3.1</TargetFramework>
     </PropertyGroup>
 
     <ItemGroup>
       <ProjectReference Include="..\NeverendingTeaShop.Application\NeverendingTeaShop.Application.csproj" />
       <ProjectReference Include="..\NeverendingTeaShop.Domain\NeverendingTeaShop.Domain.csproj" />
-      <ProjectReference Include="..\NeverendingTeaShop.Persistence\NeverendingTeaShop.Persistence.csproj" />
+      <ProjectReference Include="..\NeverendingTeaShop.Persistence.InMemory\NeverendingTeaShop.Persistence.InMemory.csproj" />
     </ItemGroup>
 
     <ItemGroup>

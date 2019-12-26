@@ -19,7 +19,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NeverendingTeaShop.Infrastr
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NeverendingTeaShop.Application.Tests", "tests\NeverendingTeaShop.Application.Tests\NeverendingTeaShop.Application.Tests.csproj", "{176886CD-B380-4B32-BCA4-8DF07C29D5FF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NeverendingTeaShop.Persistence", "src\NeverendingTeaShop.Persistence\NeverendingTeaShop.Persistence.csproj", "{2F940461-D758-4B20-9FE9-3F6C0A95800C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NeverendingTeaShop.Persistence.InMemory", "src\NeverendingTeaShop.Persistence.InMemory\NeverendingTeaShop.Persistence.InMemory.csproj", "{2F940461-D758-4B20-9FE9-3F6C0A95800C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

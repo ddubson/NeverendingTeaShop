@@ -18,7 +18,7 @@ namespace NeverendingTeaShop.API.ProductItems
         }
         
         /// <summary>
-        ///  Fetch Product Item by ID
+        ///  Fetch Tea by ID
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>

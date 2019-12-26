@@ -11,8 +11,7 @@ namespace NeverendingTeaShop.API.Teas
     {
         private readonly IFetchAllTeasQuery _fetchAllTeasQuery;
 
-        public FetchAllTeasController(
-            IFetchAllTeasQuery fetchAllTeasQuery)
+        public FetchAllTeasController(IFetchAllTeasQuery fetchAllTeasQuery)
         {
             _fetchAllTeasQuery = fetchAllTeasQuery;
         }
