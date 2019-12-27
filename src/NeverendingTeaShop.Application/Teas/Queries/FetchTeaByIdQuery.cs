@@ -1,10 +1,10 @@
 using System;
+using LanguageExt;
 using NeverendingTeaShop.Application.Interfaces.Queries;
 using NeverendingTeaShop.Application.Interfaces.Repositories;
 using NeverendingTeaShop.Domain;
-using LanguageExt;
 
-namespace NeverendingTeaShop.Application.ProductItems.Queries
+namespace NeverendingTeaShop.Application.Teas.Queries
 {
     public class FetchTeaByIdQuery : IFetchTeaByIdQuery
     {

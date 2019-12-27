@@ -3,14 +3,15 @@ using System.IO;
 using System.Reflection;
 using NeverendingTeaShop.Application.Interfaces.Queries;
 using NeverendingTeaShop.Application.Interfaces.Repositories;
-using NeverendingTeaShop.Application.ProductItems.Queries;
 using NeverendingTeaShop.Persistence.InMemory;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
+using NeverendingTeaShop.Application.Teas.Queries;
 
 namespace NeverendingTeaShop.API
 {
@@ -27,7 +28,7 @@ namespace NeverendingTeaShop.API
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
-            services.AddSingleton<IFetchAllTeasQuery, FetchAllTeasQuery>();
+            services.AddSingleton<IFetchAllTeasQuery<JsonResult>, FetchAllTeasQuery<JsonResult>>();
             services.AddSingleton<IFetchTeaByIdQuery, FetchTeaByIdQuery>();
             
             switch (Configuration["PersistenceType"])
