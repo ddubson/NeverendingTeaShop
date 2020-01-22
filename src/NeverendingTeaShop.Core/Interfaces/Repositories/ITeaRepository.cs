@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using NeverendingTeaShop.Domain;
 using LanguageExt;
 
-namespace NeverendingTeaShop.Application.Interfaces.Repositories
+namespace NeverendingTeaShop.Core.Interfaces.Repositories
 {
     public interface ITeaRepository
     {

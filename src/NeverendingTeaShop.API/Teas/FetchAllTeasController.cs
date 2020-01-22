@@ -1,6 +1,6 @@
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using NeverendingTeaShop.Application.Interfaces.Queries;
+using NeverendingTeaShop.Core.Interfaces.Queries;
 using static LanguageExt.Prelude;
 
 namespace NeverendingTeaShop.API.Teas

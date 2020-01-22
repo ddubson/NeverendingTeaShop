@@ -1,6 +1,6 @@
 using System;
 
-namespace NeverendingTeaShop.Application
+namespace NeverendingTeaShop.Core
 {
     public static class TeaPriceCalculator
     {

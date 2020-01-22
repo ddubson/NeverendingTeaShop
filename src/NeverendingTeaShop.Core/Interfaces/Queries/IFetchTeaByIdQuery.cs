@@ -2,7 +2,7 @@ using System;
 using NeverendingTeaShop.Domain;
 using LanguageExt;
 
-namespace NeverendingTeaShop.Application.Interfaces.Queries
+namespace NeverendingTeaShop.Core.Interfaces.Queries
 {
     public interface IFetchTeaByIdQuery
     {

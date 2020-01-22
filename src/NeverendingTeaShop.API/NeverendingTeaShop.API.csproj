@@ -5,9 +5,9 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\NeverendingTeaShop.Application\NeverendingTeaShop.Application.csproj" />
+      <ProjectReference Include="..\NeverendingTeaShop.Core\NeverendingTeaShop.Core.csproj" />
       <ProjectReference Include="..\NeverendingTeaShop.Domain\NeverendingTeaShop.Domain.csproj" />
-      <ProjectReference Include="..\NeverendingTeaShop.Persistence.InMemory\NeverendingTeaShop.Persistence.InMemory.csproj" />
+      <ProjectReference Include="..\NeverendingTeaShop.Infrastructure\NeverendingTeaShop.Infrastructure.csproj" />
     </ItemGroup>
 
     <ItemGroup>

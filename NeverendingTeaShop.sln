@@ -13,13 +13,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NeverendingTeaShop.Domain",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NeverendingTeaShop.API.Tests", "tests\NeverendingTeaShop.API.Tests\NeverendingTeaShop.API.Tests.csproj", "{B34B248F-8333-4DAA-B767-76DFBCDD7F7E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NeverendingTeaShop.Application", "src\NeverendingTeaShop.Application\NeverendingTeaShop.Application.csproj", "{FF47C57C-2E5D-4400-A95F-19FBE0CD99A6}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NeverendingTeaShop.Core", "src\NeverendingTeaShop.Core\NeverendingTeaShop.Core.csproj", "{FF47C57C-2E5D-4400-A95F-19FBE0CD99A6}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NeverendingTeaShop.Infrastructure", "src\NeverendingTeaShop.Infrastructure\NeverendingTeaShop.Infrastructure.csproj", "{DEE843DF-E072-4F77-9E67-0B75DCA39FC3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NeverendingTeaShop.Application.Tests", "tests\NeverendingTeaShop.Application.Tests\NeverendingTeaShop.Application.Tests.csproj", "{176886CD-B380-4B32-BCA4-8DF07C29D5FF}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NeverendingTeaShop.Persistence.InMemory", "src\NeverendingTeaShop.Persistence.InMemory\NeverendingTeaShop.Persistence.InMemory.csproj", "{2F940461-D758-4B20-9FE9-3F6C0A95800C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NeverendingTeaShop.Core.Tests", "tests\NeverendingTeaShop.Core.Tests\NeverendingTeaShop.Core.Tests.csproj", "{176886CD-B380-4B32-BCA4-8DF07C29D5FF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -106,18 +104,6 @@ Global
 		{176886CD-B380-4B32-BCA4-8DF07C29D5FF}.Release|x64.Build.0 = Release|Any CPU
 		{176886CD-B380-4B32-BCA4-8DF07C29D5FF}.Release|x86.ActiveCfg = Release|Any CPU
 		{176886CD-B380-4B32-BCA4-8DF07C29D5FF}.Release|x86.Build.0 = Release|Any CPU
-		{2F940461-D758-4B20-9FE9-3F6C0A95800C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{2F940461-D758-4B20-9FE9-3F6C0A95800C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{2F940461-D758-4B20-9FE9-3F6C0A95800C}.Debug|x64.ActiveCfg = Debug|Any CPU
-		{2F940461-D758-4B20-9FE9-3F6C0A95800C}.Debug|x64.Build.0 = Debug|Any CPU
-		{2F940461-D758-4B20-9FE9-3F6C0A95800C}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{2F940461-D758-4B20-9FE9-3F6C0A95800C}.Debug|x86.Build.0 = Debug|Any CPU
-		{2F940461-D758-4B20-9FE9-3F6C0A95800C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{2F940461-D758-4B20-9FE9-3F6C0A95800C}.Release|Any CPU.Build.0 = Release|Any CPU
-		{2F940461-D758-4B20-9FE9-3F6C0A95800C}.Release|x64.ActiveCfg = Release|Any CPU
-		{2F940461-D758-4B20-9FE9-3F6C0A95800C}.Release|x64.Build.0 = Release|Any CPU
-		{2F940461-D758-4B20-9FE9-3F6C0A95800C}.Release|x86.ActiveCfg = Release|Any CPU
-		{2F940461-D758-4B20-9FE9-3F6C0A95800C}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{DEFB23DF-31C1-479E-AB87-6B143220B4B2} = {03C2E4CB-25AC-4810-A482-E0DF9FFE7345}
@@ -126,6 +112,5 @@ Global
 		{FF47C57C-2E5D-4400-A95F-19FBE0CD99A6} = {03C2E4CB-25AC-4810-A482-E0DF9FFE7345}
 		{DEE843DF-E072-4F77-9E67-0B75DCA39FC3} = {03C2E4CB-25AC-4810-A482-E0DF9FFE7345}
 		{176886CD-B380-4B32-BCA4-8DF07C29D5FF} = {1FDEF772-D01C-4820-B308-FB8AAD4B2254}
-		{2F940461-D758-4B20-9FE9-3F6C0A95800C} = {03C2E4CB-25AC-4810-A482-E0DF9FFE7345}
 	EndGlobalSection
 EndGlobal

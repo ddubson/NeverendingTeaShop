@@ -1,13 +1,13 @@
 using System;
 using System.Collections.Generic;
 using System.Collections.Immutable;
-using NeverendingTeaShop.Application.Interfaces.Queries;
-using NeverendingTeaShop.Application.Interfaces.Repositories;
+using NeverendingTeaShop.Core.Interfaces.Queries;
+using NeverendingTeaShop.Core.Interfaces.Repositories;
 using NeverendingTeaShop.Domain;
 using LanguageExt;
 using static LanguageExt.Prelude;
 
-namespace NeverendingTeaShop.Application.ProductItems.Queries
+namespace NeverendingTeaShop.Core.ProductItems.Queries
 {
     public class FetchAllTeasQuery : IFetchAllTeasQuery
     {

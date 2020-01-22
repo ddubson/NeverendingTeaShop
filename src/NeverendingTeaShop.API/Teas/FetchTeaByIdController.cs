@@ -1,10 +1,10 @@
 using System.Threading.Tasks;
-using NeverendingTeaShop.Application.Interfaces.Queries;
-using NeverendingTeaShop.Domain;
 using Microsoft.AspNetCore.Mvc;
+using NeverendingTeaShop.Core.Interfaces.Queries;
+using NeverendingTeaShop.Domain;
 using static LanguageExt.Prelude;
 
-namespace NeverendingTeaShop.API.ProductItems
+namespace NeverendingTeaShop.API.Teas
 {
     [ApiController]
     [Route("/teas")]

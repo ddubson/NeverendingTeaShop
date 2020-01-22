@@ -4,6 +4,8 @@
         <TargetFramework>netcoreapp3.1</TargetFramework>
 
         <IsPackable>false</IsPackable>
+
+        <RootNamespace>NeverendingTeaShop.Core.Tests</RootNamespace>
     </PropertyGroup>
 
     <ItemGroup>
@@ -15,7 +17,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\..\src\NeverendingTeaShop.Application\NeverendingTeaShop.Application.csproj" />
+      <ProjectReference Include="..\..\src\NeverendingTeaShop.Core\NeverendingTeaShop.Core.csproj" />
     </ItemGroup>
 
 </Project>

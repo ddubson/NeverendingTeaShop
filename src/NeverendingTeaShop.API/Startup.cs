@@ -1,16 +1,17 @@
 using System;
 using System.IO;
 using System.Reflection;
-using NeverendingTeaShop.Application.Interfaces.Queries;
-using NeverendingTeaShop.Application.Interfaces.Repositories;
-using NeverendingTeaShop.Application.ProductItems.Queries;
-using NeverendingTeaShop.Persistence.InMemory;
+using NeverendingTeaShop.Core.Interfaces.Queries;
+using NeverendingTeaShop.Core.Interfaces.Repositories;
+using NeverendingTeaShop.Core.ProductItems.Queries;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
+using NeverendingTeaShop.Infrastructure;
 
 namespace NeverendingTeaShop.API
 {
@@ -27,9 +28,9 @@ namespace NeverendingTeaShop.API
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
-            services.AddSingleton<IFetchAllTeasQuery, FetchAllTeasQuery>();
-            services.AddSingleton<IFetchTeaByIdQuery, FetchTeaByIdQuery>();
-            
+            services.AddScoped<IFetchAllTeasQuery, FetchAllTeasQuery>();
+            services.AddScoped<IFetchTeaByIdQuery, FetchTeaByIdQuery>();
+
             switch (Configuration["PersistenceType"])
             {
                 case "postgresql":
@@ -65,7 +66,10 @@ namespace NeverendingTeaShop.API
     {
         public static void AddH2Repositories(this IServiceCollection collection)
         {
-            collection.AddSingleton<ITeaRepository, InMemoryTeaRepository>();
+            collection.AddScoped<ITeaRepository, SqlTeaRepository>();
+            collection.AddDbContext<NeverendingTeaShopContext>(options =>
+                options.UseInMemoryDatabase("NeverendingTeaShop")
+            );
         }
 
         public static void AddPostgreSqlRepositories(this IServiceCollection collection)

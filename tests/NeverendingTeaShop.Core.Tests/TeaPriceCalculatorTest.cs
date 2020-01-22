@@ -1,8 +1,8 @@
 using FluentAssertions;
 using Xunit;
-using static NeverendingTeaShop.Application.TeaPriceCalculator;
+using static NeverendingTeaShop.Core.TeaPriceCalculator;
 
-namespace NeverendingTeaShop.Application.Tests
+namespace NeverendingTeaShop.Core.Tests
 {
     public class TeaPriceCalculatorTest
     {
