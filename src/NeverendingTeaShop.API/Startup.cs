@@ -34,10 +34,10 @@ namespace NeverendingTeaShop.API
             switch (Configuration["PersistenceType"])
             {
                 case "postgresql":
-                    services.AddPostgreSqlRepositories();
+                    services.AddPostgreSqlStorageProvider();
                     break;
                 default:
-                    services.AddH2Repositories();
+                    services.AddInMemoryStorageProvider();
                     break;
             }
 
@@ -64,7 +64,7 @@ namespace NeverendingTeaShop.API
 
     public static class RepositoriesExtensions
     {
-        public static void AddH2Repositories(this IServiceCollection collection)
+        public static void AddInMemoryStorageProvider(this IServiceCollection collection)
         {
             collection.AddScoped<ITeaRepository, SqlTeaRepository>();
             collection.AddDbContext<NeverendingTeaShopContext>(options =>
@@ -72,7 +72,7 @@ namespace NeverendingTeaShop.API
             );
         }
 
-        public static void AddPostgreSqlRepositories(this IServiceCollection collection)
+        public static void AddPostgreSqlStorageProvider(this IServiceCollection collection)
         {
         }
     }
@@ -89,6 +89,11 @@ namespace NeverendingTeaShop.API
                     c.IncludeXmlComments(xmlPath);
                 }
             );
+        }
+
+        public static void PopulateDatabase(this IServiceCollection serviceCollection, ITeaRepository teaRepository)
+        {
+            DatabasePopulator.PopulateDatabase(teaRepository);
         }
     }
 }

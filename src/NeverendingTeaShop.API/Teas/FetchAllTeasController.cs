@@ -1,7 +1,6 @@
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using NeverendingTeaShop.Core.Interfaces.Queries;
-using static LanguageExt.Prelude;
 
 namespace NeverendingTeaShop.API.Teas
 {
@@ -17,11 +16,6 @@ namespace NeverendingTeaShop.API.Teas
         }
 
         [HttpGet]
-        public async Task<ActionResult> FetchAllTeas() =>
-            await match(_fetchAllTeasQuery.Execute(),
-                Right: option => match(option,
-                    Some: Ok,
-                    None: () => StatusCode(404, "None found")),
-                Left: error => StatusCode(500, "Whoa! Error!"));
+        public async Task<ActionResult> FetchAllTeas() => Ok(await _fetchAllTeasQuery.Execute());
     }
 }

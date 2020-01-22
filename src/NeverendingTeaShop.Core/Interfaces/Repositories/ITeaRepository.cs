@@ -1,14 +1,15 @@
-using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using NeverendingTeaShop.Domain;
-using LanguageExt;
 
 namespace NeverendingTeaShop.Core.Interfaces.Repositories
 {
     public interface ITeaRepository
     {
-        EitherAsync<Exception, Option<IList<Tea>>> FetchAll();
+        Task<IList<Tea>> FetchAll();
 
-        EitherAsync<Exception, Option<Tea>> FetchById(string id);
+        Task<Tea?> FetchById(string id);
+
+        Task Save(Tea tea);
     }
 }

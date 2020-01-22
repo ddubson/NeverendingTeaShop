@@ -1,11 +1,9 @@
 using System;
 using System.Collections.Generic;
-using System.Collections.Immutable;
+using System.Threading.Tasks;
 using NeverendingTeaShop.Core.Interfaces.Queries;
 using NeverendingTeaShop.Core.Interfaces.Repositories;
 using NeverendingTeaShop.Domain;
-using LanguageExt;
-using static LanguageExt.Prelude;
 
 namespace NeverendingTeaShop.Core.ProductItems.Queries
 {
@@ -18,7 +16,6 @@ namespace NeverendingTeaShop.Core.ProductItems.Queries
             _teaRepository = teaRepository;
         }
 
-        public EitherAsync<Exception, Option<IList<Tea>>> Execute()
-            => _teaRepository.FetchAll();
+        public Task<IList<Tea>> Execute() => _teaRepository.FetchAll();
     }
 }

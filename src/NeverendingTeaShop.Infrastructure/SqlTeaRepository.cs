@@ -1,12 +1,12 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Linq;
-using LanguageExt;
+using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
 using NeverendingTeaShop.Core.Interfaces.Repositories;
 using NeverendingTeaShop.Domain;
-using static LanguageExt.Prelude;
+using NeverendingTeaShop.Infrastructure.Extensions.Domain;
 
 namespace NeverendingTeaShop.Infrastructure
 {
@@ -26,27 +26,26 @@ namespace NeverendingTeaShop.Infrastructure
             _dbContext = dbContext;
         }
 
-        public EitherAsync<Exception, Option<IList<Tea>>> FetchAll()
+        public async Task<IList<Tea>> FetchAll()
         {
             try
             {
-                IList<Tea> teas = _dbContext.Teas.ToList()
-                    .Select(entity => new Tea(entity.Id.ToString(), entity.Name)
-                    ).ToList();
-                
-                return EitherAsync<Exception, Option<IList<Tea>>>.Right(
-                    teas.Count > 0 ? Some(teas): None
-                );
+                return (await _dbContext.Teas.ToListAsync())
+                    .Select(entity => new Tea(entity.Id.ToString(), entity.Name))
+                    .ToList();
             }
             catch (Exception)
             {
-                return EitherAsync<Exception, Option<IList<Tea>>>.Left(
-                    new Exception("Something went wrong in persistence."));
+                return Array.Empty<Tea>();
             }
         }
 
-        public EitherAsync<Exception, Option<Tea>> FetchById(string id) =>
-            EitherAsync<Exception, Option<Tea>>.Right(
-                new Option<Tea>(Some(_teas.Single())));
+        public Task<Tea?> FetchById(string id) => Task.FromResult<Tea?>(_teas.Single());
+        
+        public async Task Save(Tea tea)
+        {
+            _dbContext.Teas.Add(tea.MapToEntity());
+            await _dbContext.SaveChangesAsync();
+        }
     }
 }

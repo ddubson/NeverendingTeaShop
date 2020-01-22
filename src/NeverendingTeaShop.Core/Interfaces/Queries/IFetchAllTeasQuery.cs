@@ -1,12 +1,11 @@
-using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using NeverendingTeaShop.Domain;
-using LanguageExt;
 
 namespace NeverendingTeaShop.Core.Interfaces.Queries
 {
     public interface IFetchAllTeasQuery
     {
-        EitherAsync<Exception, Option<IList<Tea>>> Execute();
+        Task<IList<Tea>> Execute();
     }
 }
